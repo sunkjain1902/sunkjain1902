@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Django Course
+     </title>
+     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+<body>
+    <section>
+            <h1 class="text-center text-3xl">Programming Books</h1>
+            <div class="grid grid-cols-4 gap-4">
+                    {% for book in book_list %}
+                <a href="/book/{{ book.id }}" class="justify-self-center text-center my-4" target="_blank" >
+                <!--
+                <a href="{% url 'book.show' book.id %}" class="justify-self-center text-center my-4" target="_blank" >
+                -->
+                    <div class="justify-self-center">
+                        <p>{{ book.title }}</p>
+                        <img src="{{ book.thumbnailUrl}}" width="200" />
+                    </div>
+                    </a>
+                    {% endfor %}
+            </div>
+            
+    </section>
+    
+</body>
+</html>

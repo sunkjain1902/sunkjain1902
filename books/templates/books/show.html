@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Django Course
+     </title>
+     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+<body>
+    <section class="py-10 flex justify-center">
+        <div class="w-10/12">
+            <h1 class="text-center text-4xl">{{ book.title}}</h1>
+            <div class="flex justify-between mt-10">
+                <div class="flex justify-between">
+                    <div class="w-3/12">
+                        <img src="{{book.thumbnailUrl}}" width="200" />
+                    </div>
+                    <div class="w-9/12">
+                        <p class="text-3xl">About</p>
+                        <p class="text-gray-600 mt-5">{{ book.shortDescription }}</p>
+                        <div class="mt-10">
+                            <p class="text-3xl">Pages</p>                       
+                            <p text-gray-600 mt-5>Total {{ book.pageCount}} pages</p>
+                        </div> 
+                        <div class="mt-10">
+                            <p class="text-3xl">Author</p>                       
+                            <p text-gray-600 mt-5>{{ book.authors | join:", "}} </p>
+                        </div> 
+                        <div class="mt-10">
+                            <p class="text-3xl">Description</p>                       
+                            <p text-gray-600 mt-5>{{ book.longDescription}} </p>
+                        </div>
+
+                        <div class="mt-10">
+                            <form method="POST" action="{% url 'book.review' book.id %}">
+                                {% csrf_token %}
+                                <textarea 
+                                class="border rounded p-2 w-full"
+                                name="review"
+                                placeholder="Write your review here"
+                                rows="5" 
+                                >      
+                                </textarea>
+                                <button 
+                                type="submit" 
+                                class="float-right border rounded p-2 bg-gray-800 text-white">
+                                Submit</button>
+                            </form>
+                        </div>
+                        <div class="mt-5">
+                            <p class="text-3xl">Reviews</p>    
+                            {% for review in reviews%}                   
+                            <p text-gray-600 mt-5>{{ review.body }} Created - {{review.created_at}} </p> 
+                            {% endfor %}                      
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+    
+</body>
+</html>

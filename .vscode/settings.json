@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "C:\\software\\Python3.9\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.enabled": true,
+    "editor.formatOnSave": true,
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+    "python.jediEnabled": true,
+    "python.autoComplete.extraPaths": [
+        "C:\\work\\pythonwork\\Environments\\bookstore-proj",
+    ],
+    "python.autoComplete.addBrackets": true
+}
