@@ -8,11 +8,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from books.forms import ReviewForm
 from django.core.files.storage import FileSystemStorage
 
-with open('C:\work\pythonwork\Environments\\books.json') as f:
-    booksData = f.read()
+# with open('C:\work\pythonwork\Environments\\books.json') as f:
+#    booksData = f.read()
 
-print(type(booksData))
-data = json.loads(booksData)
+# print(type(booksData))
+#data = json.loads(booksData)
 
 # Create your views here.
 
